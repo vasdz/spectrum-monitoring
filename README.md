@@ -26,8 +26,6 @@
 git clone https://github.com/vasdz/spectrum-monitoring.git
 cd spectrum-monitoring
 
-text
-
 2. **Создай виртуальное окружение:**
 python -m venv venv
 
@@ -37,20 +35,15 @@ venv\Scripts\activate
 Linux/Mac
 source venv/bin/activate
 
-text
-
 3. **Установи зависимости:**
 cd backend
 pip install -r requirements.txt
-
-text
 
 4. **Настрой переменные окружения:**
 Скопируй .env.example в .env
 cp .env.example .env
 
 Отредактируй .env и укажи свои данные
-text
 
 5. **Настрой базу данных:**
 Создай базу данных PostgreSQL
@@ -59,12 +52,8 @@ createdb spectrum_db
 Выполни миграции (если есть)
 alembic upgrade head
 
-text
-
 6. **Запусти сервер:**
 python main.py
-
-text
 
 Backend будет доступен по адресу: `http://localhost:8000`
 
@@ -75,15 +64,11 @@ API документация: `http://localhost:8000/docs`
 1. **Перейди в директорию frontend:**
 cd frontend
 
-text
-
 2. **Установи зависимости:**
 npm install
 
 или
 yarn install
-
-text
 
 3. **Запусти dev-сервер:**
 npm run dev
@@ -91,15 +76,11 @@ npm run dev
 или
 yarn dev
 
-text
-
 Frontend будет доступен по адресу: `http://localhost:3000` (или другой порт, указанный в консоли)
 
 ## 🐳 Запуск через Docker (опционально)
 
 docker-compose up -d
-
-text
 
 ## 📁 Структура проекта
 
@@ -120,8 +101,6 @@ spectrum-monitoring/
 ├── frontend/
 │ └── ... (React/Vue/Next.js структура)
 └── README.md
-
-text
 
 ## 🔒 Безопасность
 
@@ -159,19 +138,13 @@ text
 Уже реализовано в main.py
 asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
-text
-
 ### CORS ошибки
 Убедись, что в `.env` указаны правильные `ALLOWED_ORIGINS`:
 ALLOWED_ORIGINS=["http://localhost:3000"]
 
-text
-
 ### PostgreSQL подключение
 Проверь строку подключения в `.env`:
 DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/spectrum_db
-
-text
 
 ## 📝 Логирование
 
