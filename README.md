@@ -2,6 +2,15 @@
 
 Система мониторинга активности в реальном времени с расширенными возможностями безопасности.
 
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![Backend](https://img.shields.io/badge/backend-FastAPI%20%7C%20Python%203.10-blue)
+![Frontend](https://img.shields.io/badge/frontend-React%20%7C%20MUI-blue)
+![Database](https://img.shields.io/badge/database-PostgreSQL-336791)
+![WebSocket](https://img.shields.io/badge/realtime-WebSocket-orange)
+![Security](https://img.shields.io/badge/security-WAF%20%7C%20Rate%20Limiting-red)
+![Infrastructure](https://img.shields.io/badge/infra-Docker%20%7C%20Uvicorn-purple)
+![Status](https://img.shields.io/badge/status-Active-success)
+
 ## 🚀 Возможности
 
 - ⚡ Real-time WebSocket мониторинг
