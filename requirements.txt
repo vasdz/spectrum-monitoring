@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+python-multipart
+python-socketio
+python-dotenv
+faker
+pandas>=2.2.0
+scikit-learn
+asyncpg

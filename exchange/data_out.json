@@ -1,0 +1,19 @@
+{
+    "anomalies": [
+        {
+            "details": "Detected negative academic trend correlation",
+            "risk_score": 77.84,
+            "student_id": 45
+        },
+        {
+            "details": "Detected negative academic trend correlation",
+            "risk_score": 82.84,
+            "student_id": 86
+        },
+        {
+            "details": "Detected negative academic trend correlation",
+            "risk_score": 73.32,
+            "student_id": 189
+        }
+    ]
+}

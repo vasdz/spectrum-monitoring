@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === БАЗОВЫЕ СТИЛИ === */
+body {
+  @apply bg-[#050505] text-gray-300 font-mono overflow-x-hidden;
+}
+
+/* === UI ЭФФЕКТЫ (оставляем как есть) === */
+
+/* Жидкое Стекло */
+.liquid-glass {
+  @apply backdrop-blur-xl border border-white/10 relative overflow-hidden bg-white/5;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Переливающийся текст и полосы */
+.text-gradient-flow {
+  background: linear-gradient(to right, #00f3ff, #bc13fe, #ff0055, #00f3ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: liquid 8s linear infinite;
+}
+
+.bar-gradient-flow {
+  background: linear-gradient(to right, #00f3ff, #bc13fe, #ff0055, #00f3ff);
+  background-size: 300%;
+  animation: liquid 8s linear infinite;
+}
+
+@keyframes liquid {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Дроп-тень для неона */
+.drop-shadow-neon {
+  filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
+}
+
+/* Спиннер */
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === TRON CORRIDOR (коридор к картинке города) === */
+
+.perspective-corridor {
+  perspective: 200px;          /* сильная перспектива, ощущение скорости */
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Пол/потолок внутри коридора */
+.corridor-grid {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image:
+    linear-gradient(
+      transparent 90%,
+      rgba(0, 243, 255, 0.5) 90%,
+      rgba(0, 243, 255, 0.8) 100%
+    ), /* полосы движения вперёд */
+    linear-gradient(
+      90deg,
+      transparent 98%,
+      rgba(0, 243, 255, 0.1) 98%,
+      rgba(0, 243, 255, 0.2) 100%
+    ); /* лёгкие вертикальные линии */
+  background-size: 100px 100px;
+  transform: rotateX(80deg);
+  transform-origin: 50% 100%;   /* точка схода у картинки */
+  box-shadow: inset 0 0 100px #000;
+}
+
+.moving-floor {
+  animation: drive-fast 0.5s linear infinite;
+}
+
+@keyframes drive-fast {
+  from { background-position: 0 0; }
+  to   { background-position: 0 100px; }
+}
+
+/* Плавная пульсация вертикальных лучей */
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.5; }
+}
+
+/* === БОКОВЫЕ СТЕНЫ === */
+
+/* Левая стена: повернута вправо */
+.perspective-wall-left {
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+.perspective-wall-left .wall-grid {
+  transform: rotateY(60deg) translateX(-50%);
+  transform-origin: 0 50%;
+}
+
+/* Правая стена: повернута влево */
+.perspective-wall-right {
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+.perspective-wall-right .wall-grid {
+  transform: rotateY(-60deg) translateX(50%);
+  transform-origin: 100% 50%;
+}
+
+/* Общий стиль сетки для стен */
+.wall-grid {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-image:
+    linear-gradient(transparent 95%, rgba(0, 243, 255, 0.3) 95%, rgba(0, 243, 255, 0.5) 100%), /* Горизонтальные полосы */
+    linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px); /* Вертикальные */
+  background-size: 100px 100px;
+  box-shadow: inset 0 0 50px #000;
+}
+
+/* Анимация движения стен (синхронно с полом) */
+.moving-wall {
+  animation: wall-slide 0.5s linear infinite;
+}
+
+@keyframes wall-slide {
+  from { background-position: 0 0; }
+  to { background-position: 0 100px; }
+}
+
+@keyframes neon-flow {
+  0% { color: #00f3ff; text-shadow: 0 0 10px #00f3ff; }
+  25% { color: #bc13fe; text-shadow: 0 0 10px #bc13fe; }
+  50% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+  75% { color: #00f3ff; text-shadow: 0 0 10px #00f3ff; }
+  100% { color: #00f3ff; text-shadow: 0 0 10px #00f3ff; }
+}
+
+.animate-text-flow {
+    animation: neon-flow 4s infinite linear;
+}
+
+/* Скроллбар */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #00f3ff; }
